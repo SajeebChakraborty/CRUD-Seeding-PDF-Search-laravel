@@ -17,6 +17,7 @@ class BookSeeder extends Seeder
      */
     public function run(): void
     {
+        //set dummy data using only seeder
         for ($i = 0; $i < 100; $i++) {
             Book::create([
                 'name' => Str::random(10),
@@ -26,5 +27,7 @@ class BookSeeder extends Seeder
                 'price' => random_int(1, 100)
             ]);
         }
+        //set dummy data using faker and seeder
+        \App\Models\Book::factory(100)->create();
     }
 }
